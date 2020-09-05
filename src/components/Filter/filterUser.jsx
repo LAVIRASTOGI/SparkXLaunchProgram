@@ -4,7 +4,19 @@ import { Col, Container, Row } from "react-bootstrap";
 import React, { Component } from "react";
 
 import ButtonFilter from "./../Shared/button";
+import { actionCreators } from "../../store/actions/actionCreator";
+import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
 
+function mapStateToProps(state) {
+    return {
+      data: state.employeeReducer,
+    };
+  }
+  
+  function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actionCreators, dispatch);
+  }
 class FilterUser extends Component {
   constructor(props) {
     super(props);
@@ -42,11 +54,12 @@ class FilterUser extends Component {
     };
   }
 
-  clickHandler=(event)=> {
-     console.log('1'+this.state.filters)
-     var filterdata={};
+  clickHandler = (event) => {
+    console.log("1" + this.state.filters);
+    var filterdata = {};
     var val = event.target.textContent;
-    var parentValue = event.target.parentElement.parentElement.parentElement.className;
+    var parentValue =
+      event.target.parentElement.parentElement.parentElement.className;
     switch (parentValue) {
       case "LaunchYear": {
         let launchYear = this.state.year.map((ele) => {
@@ -61,10 +74,10 @@ class FilterUser extends Component {
             isActive: false,
           };
         });
-        filterdata= {...this.state.filters,  year: val}
+        filterdata = { ...this.state.filters, year: val };
         this.setState((prevState) => ({
           ...prevState,
-          filters:filterdata,
+          filters: filterdata,
           year: launchYear,
         }));
 
@@ -84,10 +97,10 @@ class FilterUser extends Component {
             isActive: false,
           };
         });
-        filterdata= {...this.state.filters,  launch: val }
+        filterdata = { ...this.state.filters, launch: val };
         this.setState((prevState) => ({
           ...prevState,
-          filters:filterdata,
+          filters: filterdata,
           launch: launchNew,
         }));
 
@@ -107,7 +120,7 @@ class FilterUser extends Component {
             isActive: false,
           };
         });
-        filterdata= {...this.state.filters,  landing: val}
+        filterdata = { ...this.state.filters, landing: val };
         this.setState((prevState) => ({
           ...prevState,
           filters: filterdata,
@@ -120,9 +133,9 @@ class FilterUser extends Component {
       default: {
       }
     }
-    console.log('2'+this.state.filters);
-    console.log(filterdata)
-  }
+    console.log(filterdata);
+    this.props.getUserListAction(filterdata);
+  };
   render() {
     var launchYears = (
       <Row>
@@ -198,4 +211,4 @@ class FilterUser extends Component {
   }
 }
 
-export default FilterUser;
+export default connect(mapStateToProps, mapDispatchToProps)(FilterUser);

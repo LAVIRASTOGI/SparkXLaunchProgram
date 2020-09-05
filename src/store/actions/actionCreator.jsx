@@ -4,9 +4,11 @@ import userSpaceXService from "./../../services/userSpaceXService";
 
 export const actionCreators = {
   getUserListAction: (data) => async (dispatch, GetState) => {
+    //alert(data);
+    console.log(data);
     dispatch({ type: actionTypes.GET_USER_LIST_REQUEST });
 
-    var res = await userSpaceXService.getUserList();
+    var res = await userSpaceXService.getUserList(data);
 
     var filterData = res.data.map((userSpacex) => {
       return {
