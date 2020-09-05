@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionType";
 
 const initialState = {
-    userList: [],
+    userList: [ ],
     isLoading: false
 };
 

@@ -1,0 +1,19 @@
+.cardDisplay {
+    margin: 3%;
+    .cardImage {
+        background-color: rgba(105, 105, 105, 0.2);
+        width: 74%;
+        margin: auto;
+        margin-top: 9%;
+    }
+    .cardNumber {
+        color: #0074ba;
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.7rem;
+    }
+    ul {
+        margin-left: 18%;
+    }
+}

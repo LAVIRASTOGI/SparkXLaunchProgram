@@ -13,7 +13,8 @@ export const actionCreators = {
     var filterData = res.data.map((userSpacex) => {
       return {
         image: userSpacex.links.mission_patch,
-        payload_id: userSpacex.rocket.second_stage.payloads[0].payload_id,
+        mission_name:userSpacex.mission_name,
+        flight_number:userSpacex.flight_number,
         missionId: userSpacex.mission_id,
         launch_year: userSpacex.launch_year,
         launch_success: userSpacex.launch_success,
