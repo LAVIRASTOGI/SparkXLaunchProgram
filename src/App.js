@@ -1,24 +1,32 @@
+import './App.scss';
+
+import {Col, Container, Row}from 'react-bootstrap'
+
+import FilterUser from './components/Filter/filterUser'
+import Footer from './components/footer'
+import Header from './components/header'
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SpaceXUserList from './components/SpaceXUser/spaceXUser'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Container fluid>
+   <Header></Header>
+   
+   <Row>
+    <Col xs={12} md={3}>
+      <FilterUser></FilterUser>
+    </Col>
+    <Col xs={12} md={9}>
+      <SpaceXUserList></SpaceXUserList>
+    </Col>
+  
+  </Row>
+
+   
+   <Footer></Footer>
+   </Container>
     </div>
   );
 }
