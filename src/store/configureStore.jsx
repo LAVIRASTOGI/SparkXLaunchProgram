@@ -7,7 +7,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const configureStore = () => {
   const reducers = combineReducers({
-    userSpaceXReducer: userSpaceXReducer,
+    userSpaceXdata: userSpaceXReducer,
   });
 
   const middleware = [thunk];

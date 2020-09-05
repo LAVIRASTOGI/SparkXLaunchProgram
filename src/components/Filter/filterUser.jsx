@@ -8,11 +8,11 @@ import { actionCreators } from "../../store/actions/actionCreator";
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 
-function mapStateToProps(state) {
-    return {
-      data: state.employeeReducer,
-    };
-  }
+// function mapStateToProps(state) {
+//     return {
+//       data: state.userSpaceXReducer,
+//     };
+//   }
   
   function mapDispatchToProps(dispatch) {
     return bindActionCreators(actionCreators, dispatch);
@@ -137,57 +137,7 @@ class FilterUser extends Component {
     this.props.getUserListAction(filterdata);
   };
   render() {
-    var launchYears = (
-      <Row>
-        {this.state.year.map((ele, index) => {
-          return (
-            <Col xs={6} md={6}>
-              <ButtonFilter
-                key={index}
-                clickbutton={this.clickHandler}
-                activeValue={ele.isActive}
-              >
-                {ele.name}
-              </ButtonFilter>
-            </Col>
-          );
-        })}
-      </Row>
-    );
-    var launchingFilter = (
-      <Row>
-        {this.state.launch.map((ele, index) => {
-          return (
-            <Col xs={6} md={6}>
-              <ButtonFilter
-                key={index}
-                clickbutton={this.clickHandler}
-                activeValue={ele.isActive}
-              >
-                {ele.name}
-              </ButtonFilter>
-            </Col>
-          );
-        })}
-      </Row>
-    );
-    var landingFilter = (
-      <Row>
-        {this.state.landing.map((ele, index) => {
-          return (
-            <Col xs={6} md={6}>
-              <ButtonFilter
-                clickbutton={this.clickHandler}
-                key={index}
-                activeValue={ele.isActive}
-              >
-                {ele.name}
-              </ButtonFilter>
-            </Col>
-          );
-        })}
-      </Row>
-    );
+
 
     return (
       <div className="filter">
@@ -195,20 +145,39 @@ class FilterUser extends Component {
         <Container>
           <div className="LaunchYear">
             <span className="filterHeading">Launch Year</span>
-            {launchYears}
+            <Btnfnc Btndata={this.state.year} clickHandlerBtn={this.clickHandler}></Btnfnc>
           </div>
           <div className="LaunchSuccess">
             <span className="filterHeading">Successful Launch</span>
-            {launchingFilter}
+            <Btnfnc Btndata={this.state.launch} clickHandlerBtn={this.clickHandler}></Btnfnc>
           </div>
           <div className="Land">
             <span className="filterHeading">Successful Landing</span>
-            {landingFilter}
+            <Btnfnc  Btndata={this.state.landing} clickHandlerBtn={this.clickHandler}></Btnfnc>
           </div>
         </Container>
       </div>
     );
   }
 }
+function Btnfnc(props){
+  return(
+    <Row>
+    {props.Btndata.map((ele, index) => {
+      return (
+        <Col xs={6} md={6}>
+          <ButtonFilter
+            key={index}
+            clickbutton={props.clickHandlerBtn}
+            activeValue={ele.isActive}
+          >
+            {ele.name}
+          </ButtonFilter>
+        </Col>
+      );
+    })}
+  </Row>
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterUser);
+  )
+}
+export default connect(null, mapDispatchToProps)(FilterUser);
