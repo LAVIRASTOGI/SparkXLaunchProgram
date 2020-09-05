@@ -8,9 +8,9 @@ export const actionCreators = {
     console.log(data);
     dispatch({ type: actionTypes.GET_USER_LIST_REQUEST });
 
-    var res = await userSpaceXService.getUserList(data);
+    let res = await userSpaceXService.getUserList(data);
 
-    var filterData = res.data.map((userSpacex) => {
+    let filterData = res.data.map((userSpacex) => {
       return {
         image: userSpacex.links.mission_patch,
         mission_name:userSpacex.mission_name,

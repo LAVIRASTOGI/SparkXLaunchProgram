@@ -56,9 +56,9 @@ class FilterUser extends Component {
 
   clickHandler = (event) => {
     console.log("1" + this.state.filters);
-    var filterdata = {};
-    var val = event.target.textContent;
-    var parentValue =
+    let filterdata = {};
+    let val = event.target.textContent;
+    let parentValue =
       event.target.parentElement.parentElement.parentElement.className;
     switch (parentValue) {
       case "LaunchYear": {

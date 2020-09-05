@@ -23,7 +23,7 @@ function CardLauncher(props) {
 
   return (
     <>
-      <Card className="cardDisplay" style={{ width: "13rem", height: "25rem" }}>
+      <Card className="cardDisplay">
         <div className="cardImage">
           <Card.Img variant="top" src={props.userData.image} />
         </div>

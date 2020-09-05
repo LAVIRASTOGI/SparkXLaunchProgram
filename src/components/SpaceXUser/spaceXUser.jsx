@@ -1,7 +1,10 @@
+import './spaceUser.scss'
+
 import { Col, Container, Row } from "react-bootstrap";
 import React, { Component } from "react";
 
 import CardLauncher from "./../Shared/Card";
+import Loader from 'react-loader-spinner'
 import { actionCreators } from "../../store/actions/actionCreator";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -24,6 +27,8 @@ class SpaceXUserList extends Component {
 
   render() {
     let userValue = this.props.userdata.userList;
+    let loadingValue=this.props.userdata.isLoading;
+   
     let lanchList = null;
     if (userValue.length > 0) {
       lanchList = userValue.map((ele, index) => {
@@ -36,8 +41,11 @@ class SpaceXUserList extends Component {
     }
     return (
       <>
+   {/* <Container>
+   <Row>{lanchList}</Row>
+   </Container> */}
         <Container>
-          <Row>{lanchList}</Row>
+        {loadingValue? (<div className="Spinner"> <Loader type="TailSpin" color="#00BFFF" height={180} width={180} /></div>): <Row>{lanchList}</Row>}
         </Container>
       </>
     );

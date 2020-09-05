@@ -15,7 +15,7 @@ function App() {
    <Header></Header>
    
    <Row>
-    <Col xs={12} md={3}>
+    <Col xs={12} md={3} style={{marginTop:'0.5rem'}}>
       <FilterUser></FilterUser>
     </Col>
     <Col xs={12} md={9}>

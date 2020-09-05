@@ -3,8 +3,8 @@ import axios from "axios";
 var baseUrl = "https://api.spaceXdata.com/v3/launches?limit=100";
 
 const createUrl = (data) => {
-  var urlArr = Object.entries(data);
-  var urlQueryParameter = "";
+  let urlArr = Object.entries(data);
+  let urlQueryParameter = "";
   urlArr.forEach((ele) => {
     if (ele[1]) {
       if (ele[0] ==="year") {
@@ -20,7 +20,7 @@ const createUrl = (data) => {
 };
 const userSpaceXService = {
   getUserList: (data) => {
-    var url = baseUrl + createUrl(data);
+    let url = baseUrl + createUrl(data);
     console.log(url);
     return axios.get(url);
   },

@@ -1,19 +1,56 @@
-.cardDisplay {
-    margin: 3%;
-    .cardImage {
-        background-color: rgba(105, 105, 105, 0.2);
-        width: 74%;
-        margin: auto;
-        margin-top: 9%;
+    .cardDisplay {
+        margin: 3%;
+        width: 13rem;
+        height: 26rem;
+        .cardImage {
+            background-color: rgba(105, 105, 105, 0.2);
+            width: 74%;
+            margin: auto;
+            margin-top: 9%;
+        }
+        .cardNumber {
+            color: #0074ba;
+            font-size: 1rem;
+        }
+        p {
+            font-size: 0.8rem;
+        }
+        ul {
+            margin-left: 18%;
+        }
     }
-    .cardNumber {
-        color: #0074ba;
-        font-size: 1rem;
+    /* Extra small devices (phones, 600px and down) */
+    
+    @media only screen and (max-width: 699px) {
+        .cardDisplay {
+            width: 19rem;
+            height: 31rem;
+            margin: auto;
+            margin-top: 4%;
+            .cardNumber {
+                color: #0074ba;
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
     }
-    p {
-        font-size: 0.7rem;
+    
+    // Small devices (portrait tablets and large phones,
+    // 600px and up) 
+    @media only screen and (min-width: 700px) and (max-width: 1024px) {
+        .cardDisplay {
+            width: 16rem;
+            height: 31rem;
+            margin: auto;
+            margin-top: 4%;
+            .cardNumber {
+                color: #0074ba;
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 1.1rem;
+            }
+        }
     }
-    ul {
-        margin-left: 18%;
-    }
-}
