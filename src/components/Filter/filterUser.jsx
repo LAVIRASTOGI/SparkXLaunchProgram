@@ -5,19 +5,13 @@ import React, { Component } from "react";
 
 import ButtonFilter from "./../Shared/button";
 import { actionCreators } from "../../store/actions/actionCreator";
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import {debounce} from 'lodash'
+import { debounce } from "lodash";
 
-// function mapStateToProps(state) {
-//     return {
-//       data: state.userSpaceXdata.isLoading,
-//     };
-//   }
-  
-  function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actionCreators, dispatch);
-  }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
 class FilterUser extends Component {
   constructor(props) {
     super(props);
@@ -55,16 +49,12 @@ class FilterUser extends Component {
     };
   }
 
-  
-
-  clickHandler = debounce((valBtn,parentValue) => {
+  clickHandler = debounce((valBtn, parentValue) => {
     console.log("1" + this.state.filters);
     let filterdata = {};
-    //let val = event.target.textContent;
-   // let parentValue =
-  //  event.target.parentElement.parentElement.parentElement.className;
-    let val=valBtn;
-    let parentVal=parentValue;
+
+    let val = valBtn;
+    let parentVal = parentValue;
     switch (parentValue) {
       case "LaunchYear": {
         let launchYear = this.state.year.map((ele) => {
@@ -140,49 +130,55 @@ class FilterUser extends Component {
     }
     console.log(filterdata);
     this.props.getUserListAction(filterdata);
-  },500);
+  }, 500);
   render() {
-
-
     return (
       <div className="filter">
         <h5 style={{ marginLeft: "3%", paddingTop: "2%" }}>Filters</h5>
         <Container>
           <div className="LaunchYear">
             <p className="filterHeading">Launch Year</p>
-            <Btnfnc Btndata={this.state.year} clickHandlerBtn={this.clickHandler}></Btnfnc>
+            <Btnfnc
+              Btndata={this.state.year}
+              clickHandlerBtn={this.clickHandler}
+            ></Btnfnc>
           </div>
           <div className="LaunchSuccess">
             <p className="filterHeading">Successful Launch</p>
-            <Btnfnc Btndata={this.state.launch} clickHandlerBtn={this.clickHandler}></Btnfnc>
+            <Btnfnc
+              Btndata={this.state.launch}
+              clickHandlerBtn={this.clickHandler}
+            ></Btnfnc>
           </div>
           <div className="Land">
             <p className="filterHeading">Successful Landing</p>
-            <Btnfnc  Btndata={this.state.landing} clickHandlerBtn={this.clickHandler}></Btnfnc>
+            <Btnfnc
+              Btndata={this.state.landing}
+              clickHandlerBtn={this.clickHandler}
+            ></Btnfnc>
           </div>
         </Container>
       </div>
     );
   }
 }
-function Btnfnc(props){
-  return(
+function Btnfnc(props) {
+  return (
     <Row>
-    {props.Btndata.map((ele, index) => {
-      return (
-        <Col xs={6} md={6}>
-          <ButtonFilter
-            key={index}
-            clickbutton={props.clickHandlerBtn}
-            activeValue={ele.isActive}
-          >
-            {ele.name}
-          </ButtonFilter>
-        </Col>
-      );
-    })}
-  </Row>
-
-  )
+      {props.Btndata.map((ele, index) => {
+        return (
+          <Col xs={6} md={6}>
+            <ButtonFilter
+              key={index}
+              clickbutton={props.clickHandlerBtn}
+              activeValue={ele.isActive}
+            >
+              {ele.name}
+            </ButtonFilter>
+          </Col>
+        );
+      })}
+    </Row>
+  );
 }
 export default connect(null, mapDispatchToProps)(FilterUser);
