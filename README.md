@@ -1,6 +1,6 @@
 SpaceXlaunch Program
 
-This project contains client side not serve side rendering.
+
 
 This project contains 2 modules :
 
@@ -15,3 +15,5 @@ The Website is responsive on mobile, tablets(2 column layout) and desktop(4 colu
 Redux is used to maintain a global state for all the spaceXlaunch Programs
 
 The project for better performance and avoid unnecessary clicks added debouncing .
+
+This project doesn't contain not serve side rendering.
