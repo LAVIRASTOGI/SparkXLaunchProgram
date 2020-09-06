@@ -1,4 +1,4 @@
-SpaceXlaunch program
+SpaceXlaunch Program
 
 This project contains 2 modules :
 
