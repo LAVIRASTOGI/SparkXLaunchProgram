@@ -7,6 +7,7 @@ import ButtonFilter from "./../Shared/button";
 import { actionCreators } from "../../store/actions/actionCreator";
 import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
+import {debounce} from 'lodash'
 
 // function mapStateToProps(state) {
 //     return {
@@ -54,16 +55,20 @@ class FilterUser extends Component {
     };
   }
 
-  clickHandler = (event) => {
+  
+
+  clickHandler = debounce((valBtn,parentValue) => {
     console.log("1" + this.state.filters);
     let filterdata = {};
-    let val = event.target.textContent;
-    let parentValue =
-      event.target.parentElement.parentElement.parentElement.className;
+    //let val = event.target.textContent;
+   // let parentValue =
+  //  event.target.parentElement.parentElement.parentElement.className;
+    let val=valBtn;
+    let parentVal=parentValue;
     switch (parentValue) {
       case "LaunchYear": {
         let launchYear = this.state.year.map((ele) => {
-          if (ele.name == val) {
+          if (ele.name === val) {
             return {
               name: ele.name,
               isActive: true,
@@ -86,7 +91,7 @@ class FilterUser extends Component {
 
       case "LaunchSuccess": {
         let launchNew = this.state.launch.map((ele) => {
-          if (ele.name == val) {
+          if (ele.name === val) {
             return {
               name: ele.name,
               isActive: true,
@@ -109,7 +114,7 @@ class FilterUser extends Component {
 
       case "Land": {
         let landNew = this.state.landing.map((ele) => {
-          if (ele.name == val) {
+          if (ele.name === val) {
             return {
               name: ele.name,
               isActive: true,
@@ -135,7 +140,7 @@ class FilterUser extends Component {
     }
     console.log(filterdata);
     this.props.getUserListAction(filterdata);
-  };
+  },500);
   render() {
 
 

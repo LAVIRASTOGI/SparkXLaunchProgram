@@ -7,7 +7,7 @@ function ButtonFilter(props) {
 
     return (
       <>
-    <Button className={props.activeValue?'activeBtn Buttonfilter':'Buttonfilter'} onClick={props.clickbutton}>{props.children}</Button> 
+    <Button className={props.activeValue?'activeBtn Buttonfilter':'Buttonfilter'} onClick={(event)=>props.clickbutton(event.target.textContent,  event.target.parentElement.parentElement.parentElement.className)}>{props.children}</Button> 
       </>
     );
   }
