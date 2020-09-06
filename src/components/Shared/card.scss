@@ -1,7 +1,8 @@
     .cardDisplay {
-        margin: 3%;
-        width: 13rem;
-        height: 26rem;
+        width: 19rem;
+        height: 31rem;
+        margin: auto;
+        margin-top: 4%;
         .cardImage {
             background-color: rgba(105, 105, 105, 0.2);
             width: 74%;
@@ -10,47 +11,44 @@
         }
         .cardNumber {
             color: #0074ba;
-            font-size: 1rem;
+            font-size: 1.4rem;
         }
         p {
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
         ul {
             margin-left: 18%;
         }
     }
-    /* Extra small devices (phones, 600px and down) */
     
-    @media only screen and (max-width: 699px) {
-        .cardDisplay {
-            width: 19rem;
-            height: 31rem;
-            margin: auto;
-            margin-top: 4%;
-            .cardNumber {
-                color: #0074ba;
-                font-size: 1.4rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-        }
-    }
-    
-    // Small devices (portrait tablets and large phones,
-    // 600px and up) 
+    //tablets 
     @media only screen and (min-width: 700px) and (max-width: 1024px) {
         .cardDisplay {
-            width: 16rem;
+            width: 15rem;
             height: 31rem;
             margin: auto;
             margin-top: 4%;
             .cardNumber {
-                color: #0074ba;
                 font-size: 1.4rem;
             }
             p {
                 font-size: 1.1rem;
+            }
+        }
+    }
+    
+    //desktop
+    @media only screen and (min-width: 1024px) {
+        .cardDisplay {
+            width: 13rem;
+            height: 26rem;
+            margin: auto;
+            margin-top: 4%;
+            .cardNumber {
+                font-size: 1rem;
+            }
+            p {
+                font-size: 0.8rem;
             }
         }
     }
