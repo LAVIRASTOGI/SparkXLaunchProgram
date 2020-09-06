@@ -149,15 +149,15 @@ class FilterUser extends Component {
         <h5 style={{ marginLeft: "3%", paddingTop: "2%" }}>Filters</h5>
         <Container>
           <div className="LaunchYear">
-            <span className="filterHeading">Launch Year</span>
+            <p className="filterHeading">Launch Year</p>
             <Btnfnc Btndata={this.state.year} clickHandlerBtn={this.clickHandler}></Btnfnc>
           </div>
           <div className="LaunchSuccess">
-            <span className="filterHeading">Successful Launch</span>
+            <p className="filterHeading">Successful Launch</p>
             <Btnfnc Btndata={this.state.launch} clickHandlerBtn={this.clickHandler}></Btnfnc>
           </div>
           <div className="Land">
-            <span className="filterHeading">Successful Landing</span>
+            <p className="filterHeading">Successful Landing</p>
             <Btnfnc  Btndata={this.state.landing} clickHandlerBtn={this.clickHandler}></Btnfnc>
           </div>
         </Container>
