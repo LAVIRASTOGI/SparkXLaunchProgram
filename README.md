@@ -1,10 +1,12 @@
 SpaceXlaunch Program
 
+This project contains client side not serve side rendering.
+
 This project contains 2 modules :
 
-1)Filter Components- Filter options are hard coded with the values (Year,Launch,Landing).
+1)Filter Components(filterUser)- Filter options are hard coded with the values (Year,Launch,Landing).
 
-2)Visual Components - Contains the spacex Launches .
+2)Visual Components(SpaceXUser) - Contains the spacex Launches .
 
 Selected filter on clicking is able to change the selected state with different url which is shown in the visual components.
 
